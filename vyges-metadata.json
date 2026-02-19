@@ -5,6 +5,18 @@
   "source": {
     "type": "git",
     "url": "https://github.com/lowRISC/opentitan",
-    "commit": "304378684dfcf5be73bbd14faffa71790793d8c6"
-  }
+    "commit": "304378684dfcf5be73bbd14faffa71790793d8c6",
+    "rtl_path": "rtl",
+    "rtl_files": [
+      "rtl/jtag_pkg.sv",
+      "rtl/rv_dm.sv",
+      "rtl/rv_dm_dbg_reg_top.sv",
+      "rtl/rv_dm_dmi_gate.sv",
+      "rtl/rv_dm_mem_reg_top.sv",
+      "rtl/rv_dm_pkg.sv",
+      "rtl/rv_dm_reg_pkg.sv",
+      "rtl/rv_dm_regs_reg_top.sv"
+    ]
+  },
+  "updated": "2026-02-19T06:03:45Z"
 }
