@@ -1,104 +1,26 @@
 {
-  "name": "opentitan-rv-dm",
-  "version": "0.1.0",
-  "license": "Apache-2.0",
-  "source": {
-    "type": "git",
-    "url": "https://github.com/lowRISC/opentitan",
-    "commit": "304378684dfcf5be73bbd14faffa71790793d8c6",
-    "ip_path": "hw/ip/rv_dm",
-    "private": false,
-    "rtl_path": "rtl",
-    "rtl_files": [
-      "rtl/jtag_pkg.sv",
-      "rtl/rv_dm.sv",
-      "rtl/rv_dm_dbg_reg_top.sv",
-      "rtl/rv_dm_dmi_gate.sv",
-      "rtl/rv_dm_mem_reg_top.sv",
-      "rtl/rv_dm_pkg.sv",
-      "rtl/rv_dm_reg_pkg.sv",
-      "rtl/rv_dm_regs_reg_top.sv"
-    ]
-  },
-  "updated": "2026-03-24T02:12:45Z",
   "$schema": "https://vyges.com/schema/v1/vyges-metadata.schema.json",
   "x-version": "1.0.0",
-  "description": "Rv Dm. OpenTitan IP block from hw/ip/rv_dm.",
-  "template": "opentitan-ip-template@1.0.0",
-  "target": [
-    "fpga",
-    "asic"
-  ],
-  "design_type": [
-    "digital"
-  ],
-  "maturity": "prototype",
+  "name": "opentitan-rv-dm",
+  "version": "0.1.0",
+  "description": "RISC-V Debug Module (DM) with JTAG DTM, abstract command support, program buffer, system bus access, and halt/resume control. Implements RISC-V Debug Spec 0.13.2. TileLink-UL interfaces. Extracted from OpenTitan (lowRISC).",
+  "license": "Apache-2.0",
+  "maturity": "production",
+  "target": ["asic", "fpga"],
+  "design_type": ["digital"],
   "created": "2026-02-19T06:12:02Z",
-  "interfaces": [
-    {
-      "type": "bus",
-      "direction": "input",
-      "protocol": "TL-UL",
-      "width": 32,
-      "description": "TL-UL host interface for register access",
-      "signals": [
-        {
-          "name": "clk_i",
-          "direction": "input",
-          "type": "clock",
-          "width": 1,
-          "description": "System clock"
-        },
-        {
-          "name": "rst_ni",
-          "direction": "input",
-          "type": "reset",
-          "width": 1,
-          "active_level": "low",
-          "description": "Active-low synchronous reset"
-        },
-        {
-          "name": "tl_i",
-          "direction": "input",
-          "type": "data",
-          "width": 1,
-          "description": "TL-UL host-to-device (tl_h2d_t struct) \u2014 connect to xbar slave port"
-        },
-        {
-          "name": "tl_o",
-          "direction": "output",
-          "type": "data",
-          "width": 1,
-          "description": "TL-UL device-to-host (tl_d2h_t struct) \u2014 connect to xbar slave port"
-        }
-      ]
-    },
-    {
-      "type": "bus",
-      "direction": "output",
-      "protocol": "Debug",
-      "description": "RISC-V debug module interface"
-    }
-  ],
-  "categories": {
-    "primary": "debug",
-    "secondary": [
-      "risc-v"
-    ],
-    "tags": [
-      "risc-v",
-      "opentitan",
-      "lowrisc-opentitan"
-    ]
-  },
-  "community": {
-    "issues": "https://github.com/vyges-ip/opentitan-rv-dm/issues",
-    "contributions": "https://github.com/vyges-ip/opentitan-rv-dm/pulls"
-  },
-  "branding": {
-    "provider": "Vyges IP Catalog",
-    "logo": "https://vyges.com/assets/logo.svg",
-    "website": "https://github.com/vyges-ip/opentitan-rv-dm",
-    "usage": "Use of the logo is permitted for attribution or compatibility references only."
-  }
+  "updated": "2026-03-27T19:35:00Z",
+  "source": {"type": "git", "url": "https://github.com/lowRISC/opentitan", "private": false, "rtl_path": "rtl"},
+  "maintainers": [{"name": "Vyges", "email": "team@vyges.com", "github": "vyges"}],
+  "interfaces": [{"type": "bus", "direction": "slave", "protocol": "TL-UL", "port": "tl", "width": 32}],
+  "architecture": {"type": "peripheral", "features": ["RISC-V Debug Spec 0.13.2 compliant", "JTAG Debug Transport Module (DTM)", "Abstract command support (register access)", "Program buffer for arbitrary instruction execution", "System bus access via TL-UL", "Halt/resume/single-step control", "8 RTL files, 13,197 lines"]},
+  "dependencies": [{"name": "opentitan-prim", "type": "library"}, {"name": "opentitan-tlul", "type": "bus"}],
+  "documentation": {"upstream": "https://opentitan.org/book/hw/ip/rv-dm/"},
+  "artifacts": {"total_rtl_lines": 13197},
+  "categories": {"primary": "debug", "secondary": ["risc-v", "infrastructure"], "tags": ["rv-dm", "debug", "jtag", "risc-v", "halt", "breakpoint", "opentitan", "tl-ul"]},
+  "trust": {"verification_level": "silicon_proven", "tapeout_count": 3, "maintained": true, "last_activity": "2026-03-27"},
+  "asic": {"flavor": "digital", "technology": ["sky130A"]},
+  "fpga": {"toolchain": ["Vivado", "Yosys"]},
+  "keywords": ["rv-dm", "opentitan", "tl-ul"],
+  "meta": {"template": {"generator": "manual (gold-standard pass 2026-03-27)"}, "schema": {"version": "1.0.0"}}
 }
