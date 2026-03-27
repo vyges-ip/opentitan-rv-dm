@@ -1,35 +1,29 @@
-# RISC-V Debug System Wrapper Technical Specification
+# OpenTitan
 
-[`rv_dm`](https://reports.opentitan.org/hw/ip/rv_dm/dv/latest/report.html):
-![](https://dashboards.lowrisc.org/badges/dv/rv_dm/test.svg)
-![](https://dashboards.lowrisc.org/badges/dv/rv_dm/passing.svg)
-![](https://dashboards.lowrisc.org/badges/dv/rv_dm/functional.svg)
-![](https://dashboards.lowrisc.org/badges/dv/rv_dm/code.svg)
+![OpenTitan logo](./doc/opentitan-logo.png)
 
-# Overview
+## About the project
 
-This document specifies the RISC-V Debug System wrapper functionality.
+[OpenTitan](https://opentitan.org) is an open source silicon Root of Trust (RoT) project.
+OpenTitan will make the silicon RoT design and implementation more transparent, trustworthy, and secure for enterprises, platform providers, and chip manufacturers.
+OpenTitan is administered by [lowRISC CIC](https://www.lowrisc.org) as a collaborative project to produce high quality, open IP for instantiation as a full-featured product.
+See the [OpenTitan site](https://opentitan.org) and [OpenTitan docs](https://opentitan.org/book/) for more information about the project.
 
-## Features
+## About this repository
 
-The debug system follows the execution-based debug approach described in the [RISC-V Debug Specification 0.13.2](https://github.com/riscv/riscv-debug-spec/raw/4e0bb0fc2d843473db2356623792c6b7603b94d4/riscv-debug-release.pdf) and provides the following features.
+This repository contains hardware, software and utilities written as part of the OpenTitan project.
+It is structured as monolithic repository, or "monorepo", where all components live in one repository.
+It exists to enable collaboration across partners participating in the OpenTitan project.
 
-- JTAG Test Access Port (TAP)
-- Run-control debug features (in cooperation with the CPU core), including breakpoints, single-stepping through code, and reading core registers
-- System Bus Access (SBA): Access to arbitrary bus-attached peripherals through JTAG
-- Compatible with RISC-V Debug Specification 0.13-compliant debug software, including OpenOCD and GDB
-- TileLink Uncached Light (TL-UL) bus interfaces
-- Late debug enable mechanism in DEV life cycle state
+## Documentation
 
-## Description
+The project contains comprehensive documentation of all IPs and tools.
+You can access it [online at opentitan.org/book/](https://opentitan.org/book/).
 
-This module provides a RISC-V Debug Specification-compliant debug system with TileLink Uncached Light bus interfaces.
-The main functionality is provided by the [PULP RISC-V Debug System](https://github.com/pulp-platform/riscv-dbg), which is instantiated by this module.
-All bus interfaces are converted into TL-UL.
+## How to contribute
 
-See the [PULP RISC-V Debug System Documentation](https://github.com/lowRISC/opentitan/blob/master/hw/vendor/pulp_riscv_dbg/doc/debug-system.md) for a full list of features and further design documentation.
-This document only describes the additional logic provided on top of the PULP RISC-V Debug System.
+Have a look at [CONTRIBUTING](CONTRIBUTING.md) and our [documentation on project organization and processes](./doc/project_governance/README.md) for guidelines on how to contribute code to this repository.
 
-## Compatibility
+## Licensing
 
-The debug system is compliant with the [RISC-V Debug Specification 0.13.2](https://github.com/riscv/riscv-debug-spec/raw/4e0bb0fc2d843473db2356623792c6b7603b94d4/riscv-debug-release.pdf).
+Unless otherwise noted, everything in this repository is covered by the Apache License, Version 2.0 (see [LICENSE](https://github.com/lowRISC/opentitan/blob/master/LICENSE) for full text).
